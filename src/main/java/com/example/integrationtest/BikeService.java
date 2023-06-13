@@ -23,9 +23,12 @@ public class BikeService {
         int numberOfBikesWithColor = 0;
         for (Bike bike : allBikes) {
             if (bike.color().equals(color)) {
-                sumPriceOfBikesWithColor.add(bike.price());
+                sumPriceOfBikesWithColor = sumPriceOfBikesWithColor.add(bike.price());
                 numberOfBikesWithColor++;
             }
+        }
+        if (numberOfBikesWithColor == 0) {
+            return null;
         }
         return sumPriceOfBikesWithColor.divide(new BigDecimal(numberOfBikesWithColor), RoundingMode.HALF_UP);
     }
