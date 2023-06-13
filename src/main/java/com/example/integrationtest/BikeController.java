@@ -1,9 +1,9 @@
 package com.example.integrationtest;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/bikes")
@@ -15,5 +15,10 @@ public class BikeController {
     @PostMapping
     Bike createBike(Bike bike) {
         return bikeService.createBike(bike);
+    }
+
+    @GetMapping
+    BigDecimal calculateAverageBikePrice(@RequestParam String color) {
+        return bikeService.calculateAverageBikePrice(color);
     }
 }
