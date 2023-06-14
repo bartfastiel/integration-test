@@ -13,7 +13,7 @@ public class BikeController {
     private final BikeService bikeService;
 
     @PostMapping
-    Bike createBike(Bike bike) {
+    Bike createBike(@RequestBody Bike bike) {
         return bikeService.createBike(bike);
     }
 
